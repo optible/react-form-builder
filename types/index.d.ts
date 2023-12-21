@@ -119,6 +119,7 @@ export type ToolbarItem = {
 };
 
 export interface FormBuilderProps {
+  data?: FormBuilderPostData;
   toolbarItems?: ToolbarItem[];
   files?: any[];
   url?: string;
