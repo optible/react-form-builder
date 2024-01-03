@@ -95,6 +95,9 @@
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.2"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "scripts": {
     "build": "webpack --mode production --config webpack.production.config.js",
     "build:dev": "webpack --mode development",
@@ -104,7 +107,7 @@
     "build:dist": "npm run build && npm run copy:dist",
     "clean": "rimraf dist",
     "copy:dist": "copyfiles -f \"./dist/*\" \"./public/dist\"",
-    "prepublishOnly": "npm run clean && NODE_OPTIONS=--openssl-legacy-provider npm run build:lib && NODE_OPTIONS=--openssl-legacy-provider npm run build",
+    "prepublishOnly": "npm run clean && npm run build:lib && npm run build",
     "watch": "webpack --watch",
     "start": "webpack-dev-server --hot --mode development",
     "serve:api": "node server/index.js",
