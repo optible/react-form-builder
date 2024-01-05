@@ -148,6 +148,23 @@ class Toolbar extends React.Component {
         options: [],
       },
       {
+        key: 'ListInput',
+        canHaveAnswer: true,
+        name: "List Input",
+        icon: 'far fa-check-square',
+        label: "Label for ListInput",
+        field_name: 'listInput_',
+        inputs: [],
+      },
+      {
+        key: 'ExpenseInput',
+        canHaveAnswer: true,
+        name: "Expense Input",
+        icon: 'far fa-check-square',
+        label: "Label for ListInput",
+        field_name: 'expenseInput_',
+      },
+      {
         key: 'RadioButtons',
         canHaveAnswer: true,
         name: intl.formatMessage({ id: 'multiple-choice' }),
@@ -456,7 +473,7 @@ class Toolbar extends React.Component {
     const { items, grouped, groupKeys } = buildGroupItems(this.state.items);
     return (
       <div className="col-md-3 react-form-builder-toolbar float-right">
-        <h4>{this.props.intl.formatMessage({ id: 'toolbox' })}</h4>
+        <h4 className='text-dark mb-2'>Element Type</h4>
         <ul>
           {
             items.map(this.renderItem)
