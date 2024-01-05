@@ -22,7 +22,7 @@
     // position: relative;
     // width: 70%;
     border: 1px solid #ddd;
-    background: #fafafa;
+    background: #fff;
     padding: 10px;
     box-shadow: 0 0 2px 1px rgba(0,0,0,0.1);
     min-height: 750px;
@@ -187,7 +187,7 @@
           &.is-dragging {
             position: absolute;
             z-index: 1688;
-            border: 2px #ccc dashed;
+            border: 2px #ccc solid;
             background: #fff;
             cursor: move;
             padding: 10px 20px;
@@ -197,7 +197,7 @@
           display: block;
           z-index: auto;
           opacity: .4;
-          border: 2px #ccc dashed;
+          border: 2px #ccc solid;
         }
         .toolbar-header {
           opacity: 0; // visible
@@ -263,6 +263,8 @@
         margin: 5px;
         padding: 10px;
         border: 1px dashed #ddd;
+        display: flex;
+        align-items: center;
         i {
           margin: 0 15px 0 10px;
         }
@@ -438,7 +440,7 @@
 
 .form-place-holder {
   margin:10px; 
-  border:2px dashed #bbb;
+  border:2px solid #bbb;
   -moz-border-radius:5px;
   -webkit-border-radius:5px;
   border-radius:5px;

@@ -1,7 +1,7 @@
 import React,{ useState, useEffect } from 'react';
 
 const boxStyles = {
-    border: '1px dashed gray',
+    border: '1px solid gray',
     padding: '0.5rem 1rem',
     cursor: 'move',
 };
