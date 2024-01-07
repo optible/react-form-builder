@@ -74,6 +74,7 @@ module.exports = {
             loader: 'url-loader',
             options: {
               limit: 8192, // in bytes
+              fallback: 'file-loader',
             },
           },
         ],
