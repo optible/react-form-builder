@@ -17,10 +17,10 @@ class PlaceHolder extends React.Component {
         <div>
           {this.props.show ? (
             this.props.text === "Dropzone" ? (
-              <div className='mt-4'>
+              <div className='mt-5'>
                 <img
                   style={{ height: "200px", width: "219px" }}
-                  className="container-fluid d-flex justify-content-center mb-3"
+                  className="container-fluid d-flex justify-content-center mb-5"
                   src={DragDropImage}
                   alt="Drag and Drop"
                 />
