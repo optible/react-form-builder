@@ -19,8 +19,8 @@ class PlaceHolder extends React.Component {
             this.props.text === "Dropzone" ? (
               <div className='mt-4'>
                 <img
-                  style={{ height: "220px", width: "219px" }}
-                  className="container-fluid d-flex justify-content-center"
+                  style={{ height: "200px", width: "219px" }}
+                  className="container-fluid d-flex justify-content-center mb-3"
                   src={DragDropImage}
                   alt="Drag and Drop"
                 />
