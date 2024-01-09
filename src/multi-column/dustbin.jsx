@@ -26,7 +26,7 @@ function getCustomElement(item, props) {
 
 function getElement(item, props) {
   if (!item) return null;
-  if (item.custom) {
+  if (item.element === "CustomElement") {
     return getCustomElement(item, props);
   }
   const Element = FormElements[item.element || item.key];
