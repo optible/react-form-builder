@@ -461,6 +461,14 @@ class Toolbar extends React.Component {
     ]
     }
 
+    if (item.key === "MultiColumnInput") {
+      elementOptions.inputs = [{
+        label: "Column",
+        type: "TextInput",
+        validation: "min:0|max:100"
+      }];
+    }
+
     if (item.element === 'MultiColumnRow') {
       elementOptions.col_count = item.col_count;
     }
