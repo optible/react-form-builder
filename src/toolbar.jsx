@@ -155,7 +155,6 @@ class Toolbar extends React.Component {
         icon: 'far fa-check-square',
         label: "Label for ListInput",
         field_name: 'listInput_',
-        inputs: [],
       },
       {
         key: 'ExpenseInput',
@@ -379,6 +378,15 @@ class Toolbar extends React.Component {
       static: item.static,
       required: false,
       showDescription: item.showDescription,
+      conditions: {
+        conditions: [
+            {
+                inputId: "",
+                condition: "",
+                value: "",
+            },
+        ],
+    },
     });
 
     if (this.props.showDescription === true && !item.static) {
@@ -440,6 +448,17 @@ class Toolbar extends React.Component {
       elementOptions.max_value = item.max_value;
       elementOptions.min_label = item.min_label;
       elementOptions.max_label = item.max_label;
+    }
+
+    if (item.key === "ListInput"){
+      elementOptions.inputs = [
+        {
+            label: "Add question",
+            type: "TextInput",
+            required: false,
+            validation: "min:0|max:100",
+        },
+    ]
     }
 
     if (item.element === 'MultiColumnRow') {
