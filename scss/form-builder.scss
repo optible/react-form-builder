@@ -291,11 +291,10 @@
 
     ul {
       padding: 0;
-      overflow-y: auto;
+      overflow-y: scroll;
       overflow-x: hidden;
-      position: sticky;
-      top: 0;
-      max-height: 100vh;
+      position: fixed;
+      height: 500px;
 
       li {
         cursor: pointer;
