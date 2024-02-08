@@ -1,6 +1,6 @@
 {
   "name": "@optible/react-form-builder2",
-  "version": "0.38.0",
+  "version": "0.39.0",
   "description": "A complete form builder for react.",
   "main": "lib/index.js",
   "types": "types/index.d.ts",
