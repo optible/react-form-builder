@@ -77,15 +77,15 @@ class Toolbar extends React.Component {
         ];
       case 'Checkboxes':
         return [
-          { value: 'place_holder_option_1', text: intl.formatMessage({ id: 'place-holder-option-1' }), key: `checkboxes_option_${nanoid()}` },
-          { value: 'place_holder_option_2', text: intl.formatMessage({ id: 'place-holder-option-2' }), key: `checkboxes_option_${nanoid()}` },
-          { value: 'place_holder_option_3', text: intl.formatMessage({ id: 'place-holder-option-3' }), key: `checkboxes_option_${nanoid()}` },
+          { value: 'Option 1', text: 'Text to display 1', key: `checkboxes_option_${nanoid()}` },
+          { value: 'Option 2', text: 'Text to display 2', key: `checkboxes_option_${nanoid()}` },
+          { value: 'Option 3', text: 'Text to display 3', key: `checkboxes_option_${nanoid()}` },
         ];
       case 'RadioButtons':
         return [
-          { value: 'place_holder_option_1', text: intl.formatMessage({ id: 'place-holder-option-1' }), key: `radiobuttons_option_${nanoid()}` },
-          { value: 'place_holder_option_2', text: intl.formatMessage({ id: 'place-holder-option-2' }), key: `radiobuttons_option_${nanoid()}` },
-          { value: 'place_holder_option_3', text: intl.formatMessage({ id: 'place-holder-option-3' }), key: `radiobuttons_option_${nanoid()}` },
+          { value: 'Option 1', text: 'Text to display 1', key: `checkboxes_option_${nanoid()}` },
+          { value: 'Option 2', text: 'Text to display 2', key: `checkboxes_option_${nanoid()}` },
+          { value: 'Option 3', text: 'Text to display 3', key: `checkboxes_option_${nanoid()}` },
         ];
       default:
         return [];
