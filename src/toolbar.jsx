@@ -77,15 +77,15 @@ class Toolbar extends React.Component {
         ];
       case 'Checkboxes':
         return [
-          { value: 'Option 1', text: 'Text to display 1', key: `checkboxes_option_${nanoid()}` },
-          { value: 'Option 2', text: 'Text to display 2', key: `checkboxes_option_${nanoid()}` },
-          { value: 'Option 3', text: 'Text to display 3', key: `checkboxes_option_${nanoid()}` },
+          { value: '', text: 'Text to display 1', key: `checkboxes_option_${nanoid()}` },
+          { value: '', text: 'Text to display 2', key: `checkboxes_option_${nanoid()}` },
+          { value: '', text: 'Text to display 3', key: `checkboxes_option_${nanoid()}` },
         ];
       case 'RadioButtons':
         return [
-          { value: 'Option 1', text: 'Text to display 1', key: `checkboxes_option_${nanoid()}` },
-          { value: 'Option 2', text: 'Text to display 2', key: `checkboxes_option_${nanoid()}` },
-          { value: 'Option 3', text: 'Text to display 3', key: `checkboxes_option_${nanoid()}` },
+          { value: '', text: 'Text to display 1', key: `checkboxes_option_${nanoid()}` },
+          { value: '', text: 'Text to display 2', key: `checkboxes_option_${nanoid()}` },
+          { value: '', text: 'Text to display 3', key: `checkboxes_option_${nanoid()}` },
         ];
       default:
         return [];
