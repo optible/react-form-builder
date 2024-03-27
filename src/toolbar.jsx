@@ -87,6 +87,12 @@ class Toolbar extends React.Component {
           { value: '', text: 'Text to display 2', key: `checkboxes_option_${nanoid()}` },
           { value: '', text: 'Text to display 3', key: `checkboxes_option_${nanoid()}` },
         ];
+      case 'HorizontalRadio':
+        return [
+          { value: 'Option 1', imageUrl: 'https://picsum.photos/200/300', key: `radio_option_${nanoid()}` },
+          { value: 'Option 2', imageUrl: 'https://picsum.photos/200/300', key: `radio_option_${nanoid()}` },
+          { value: 'Option 3', imageUrl: 'https://picsum.photos/200/300', key: `radio_option_${nanoid()}` },
+        ]
       default:
         return [];
     }
@@ -483,7 +489,7 @@ class Toolbar extends React.Component {
       if (item.options.length > 0) {
         elementOptions.options = item.options.map(x => ({ ...x, key: `custom_option_${ID.uuid()}` }));
       } else {
-        elementOptions.options = Toolbar._defaultItemOptions(elementOptions.element, intl);
+        elementOptions.options = Toolbar._defaultItemOptions(elementOptions.key, intl);
       }
     }
 
