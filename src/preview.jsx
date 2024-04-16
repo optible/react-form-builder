@@ -223,15 +223,34 @@ export default class Preview extends React.Component {
       this.restoreCard(item, id);
     } else {
       data.splice(hoverIndex, 0, item);
-      this.saveData(item, hoverIndex, hoverIndex);
-      store.dispatch("insertItem", item);
+      const newData = update(this.state,{
+        data:{
+          $splice: [
+            [hoverIndex,0,item]
+          ]
+        }
+      })
+      var unique = [...new Set(newData.data)];
+      const finalData = {...this.state, data: unique};
+      this.setState(finalData);
+      store.dispatch("updateOrder", finalData.data);
     }
   }
 
   moveCard(dragIndex, hoverIndex) {
     const { data } = this.state;
     const dragCard = data[dragIndex];
-    this.saveData(dragCard, dragIndex, hoverIndex);
+
+    if (dragCard !== undefined){
+      let newData = data;
+      let b = newData[dragIndex];
+      newData[dragIndex] = newData[hoverIndex];
+      newData[hoverIndex] = b;
+
+      const finalData = {...this.state, data: newData};
+      this.setState(finalData);
+      store.dispatch('updateOrder', finalData.data)
+    }
   }
 
   // eslint-disable-next-line no-unused-vars
@@ -248,8 +267,10 @@ export default class Preview extends React.Component {
         ],
       },
     });
-    this.setState(newData);
-    store.dispatch("updateOrder", newData.data);
+    var unique = [... new Set(newData.data)];
+    const finalData = {...this.state, data: unique};
+    this.setState(finalData);
+    store.dispatch("updateOrder", finalData.data);
   }
 
   getElement(item, index) {
