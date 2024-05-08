@@ -59,7 +59,33 @@ class Toolbar extends React.Component {
 
   componentDidMount() {
     store.subscribe(state => this.setState({ store: state }));
+    this.checkItemsUpdate();
   }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.items.length !== this.state.items.length) {
+      // Trigger a refresh when items have updated
+      this.refreshItems();
+    }
+  }
+
+  refreshItems() {
+    // Logic to refresh items
+    const { intl } = this.props;
+    const updatedItems = buildItems(this.props.items, this._defaultItems(intl));
+    this.setState({ items: updatedItems });
+  }
+
+  checkItemsUpdate() {
+    const { items: prevItems } = this.state;
+    const { intl } = this.props;
+    const currentItems = buildItems(this.props.items, this._defaultItems(intl));
+
+    if (prevItems.length !== currentItems.length) {
+      this.refreshItems();
+    }
+  }
+
 
   static _defaultItemOptions(element, intl) {
     switch (element) {
@@ -505,6 +531,7 @@ class Toolbar extends React.Component {
 
   render() {
     const { items, grouped, groupKeys } = buildGroupItems(this.state.items);
+
     return (
       <div className="col-md-3 react-form-builder-toolbar float-right">
         <h4 className='text-dark mb-2'>Element Type</h4>
