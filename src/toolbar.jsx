@@ -59,31 +59,6 @@ class Toolbar extends React.Component {
 
   componentDidMount() {
     store.subscribe(state => this.setState({ store: state }));
-    this.checkItemsUpdate();
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.items.length !== this.state.items.length) {
-      // Trigger a refresh when items have updated
-      this.refreshItems();
-    }
-  }
-
-  refreshItems() {
-    // Logic to refresh items
-    const { intl } = this.props;
-    const updatedItems = buildItems(this.props.items, this._defaultItems(intl));
-    this.setState({ items: updatedItems });
-  }
-
-  checkItemsUpdate() {
-    const { items: prevItems } = this.state;
-    const { intl } = this.props;
-    const currentItems = buildItems(this.props.items, this._defaultItems(intl));
-
-    if (prevItems.length !== currentItems.length) {
-      this.refreshItems();
-    }
   }
 
 

@@ -10,7 +10,8 @@ const style = {
   marginBottom: '.5rem',
   backgroundColor: 'white',
   cursor: 'pointer',
-};
+  lineBreak: 'anywhere',
+}
 
 const cardSource = {
   beginDrag(props) {
