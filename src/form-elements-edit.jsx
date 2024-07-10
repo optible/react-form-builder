@@ -6,10 +6,12 @@ import {
 import draftToHtml from 'draftjs-to-html';
 import { Editor } from 'react-draft-wysiwyg';
 
+import { IntlProvider } from 'react-intl';
 import DynamicOptionList from './dynamic-option-list';
 import { get } from './stores/requests';
 import ID from './UUID';
 import IntlMessages from './language-provider/IntlMessages';
+import AppLocale from './language-provider';
 
 const toolbar = {
   options: ['inline', 'list', 'textAlign', 'fontSize', 'link', 'history'],
@@ -135,8 +137,12 @@ export default class FormElementsEdit extends React.Component {
     if (this.props.element.hasOwnProperty('label')) {
       editorState = this.convertFromHTML(this.props.element.label);
     }
-
+    const language = this.props.locale ? this.props.locale : 'en';
+    const currentAppLocale = AppLocale[language];
     return (
+    <IntlProvider
+      locale={currentAppLocale.locale}
+      messages={currentAppLocale.messages}>
       <div>
         <div className="clearfix">
           <h4 className="float-left">{this.props.element.text}</h4>
@@ -431,6 +437,7 @@ export default class FormElementsEdit extends React.Component {
             key={this.props.element.options.length} />
         }
       </div>
+      </IntlProvider>
     );
   }
 }

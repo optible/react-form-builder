@@ -56,4 +56,4 @@ ID.uuidCompact = function() {
     return v.toString(16);
   });
 };
-module.exports = ID;
+export default ID;

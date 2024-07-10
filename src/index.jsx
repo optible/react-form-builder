@@ -1,3 +1,5 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
 /**
   * <ReactFormBuilder />
 */
@@ -8,7 +10,8 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 import { IntlProvider } from 'react-intl';
 import Preview from './preview';
 import Toolbar from './toolbar';
-import FormGenerator from './form';
+// eslint-disable-next-line import/no-unresolved, import/extensions
+import FormGenerator from './form.jsx';
 import store from './stores/store';
 import Registry from './stores/registry';
 import AppLocale from './language-provider';

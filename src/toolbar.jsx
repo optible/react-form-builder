@@ -4,11 +4,11 @@
 
 import React from 'react';
 import { injectIntl } from 'react-intl';
+import { nanoid } from 'nanoid';
 import ToolbarItem from './toolbar-draggable-item';
 import ToolbarGroupItem from './toolbar-group-item';
 
 import ID from './UUID';
-import { nanoid } from "nanoid";
 import store from './stores/store';
 import { groupBy } from './functions';
 
@@ -61,7 +61,6 @@ class Toolbar extends React.Component {
     store.subscribe(state => this.setState({ store: state }));
   }
 
-
   static _defaultItemOptions(element, intl) {
     switch (element) {
       case 'Dropdown':
@@ -93,7 +92,7 @@ class Toolbar extends React.Component {
           { value: 'Option 1', imageUrl: 'https://picsum.photos/200/300', key: `radio_option_${nanoid()}` },
           { value: 'Option 2', imageUrl: 'https://picsum.photos/200/300', key: `radio_option_${nanoid()}` },
           { value: 'Option 3', imageUrl: 'https://picsum.photos/200/300', key: `radio_option_${nanoid()}` },
-        ]
+        ];
       default:
         return [];
     }
@@ -158,17 +157,17 @@ class Toolbar extends React.Component {
       {
         key: 'ListInput',
         canHaveAnswer: true,
-        name: "List Input",
+        name: 'List Input',
         icon: 'far fa-check-square',
-        label: "Label for ListInput",
+        label: 'Label for ListInput',
         field_name: 'listInput_',
       },
       {
         key: 'ExpenseInput',
         canHaveAnswer: true,
-        name: "Expense Input",
+        name: 'Expense Input',
         icon: 'far fa-check-square',
-        label: "Label for ListInput",
+        label: 'Label for ListInput',
         field_name: 'expenseInput_',
       },
       {
@@ -365,7 +364,7 @@ class Toolbar extends React.Component {
 
   addCustomOptions(item, elementOptions) {
     if (item.type === 'custom') {
-      const customOptions = Object.assign({}, item, elementOptions);
+      const customOptions = { ...item, ...elementOptions };
       customOptions.custom = true;
       customOptions.component = item.component || null;
       customOptions.custom_options = item.custom_options || [];
@@ -388,9 +387,9 @@ class Toolbar extends React.Component {
       conditions: {
         conditions: [
             {
-                inputId: "",
-                condition: "",
-                value: "",
+                inputId: '',
+                condition: '',
+                value: '',
             },
         ],
     },
@@ -457,22 +456,22 @@ class Toolbar extends React.Component {
       elementOptions.max_label = item.max_label;
     }
 
-    if (item.key === "ListInput"){
+    if (item.key === 'ListInput') {
       elementOptions.inputs = [
         {
-            label: "Add question",
-            type: "TextInput",
+            label: 'Add question',
+            type: 'TextInput',
             required: false,
-            validation: "min:0|max:100",
+            validation: 'min:0|max:100',
         },
-    ]
+    ];
     }
 
-    if (item.key === "MultiColumnInput") {
+    if (item.key === 'MultiColumnInput') {
       elementOptions.inputs = [{
-        label: "Column",
-        type: "TextInput",
-        validation: "min:0|max:100"
+        label: 'Column',
+        type: 'TextInput',
+        validation: 'min:0|max:100',
       }];
     }
 

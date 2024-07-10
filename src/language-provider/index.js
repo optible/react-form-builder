@@ -1,6 +1,8 @@
-import enLang from './entries/en-us';
-import itLang from './entries/it-it';
-import vnLang from './entries/vi-vn';
+// eslint-disable-next-line import/extensions
+/* eslint-disable import/extensions */
+import enLang from './entries/en-us.js';
+import itLang from './entries/it-it.js';
+import vnLang from './entries/vi-vn.js';
 
 export const AppLanguages = [
   {

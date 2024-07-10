@@ -1,49 +1,75 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
-  entry: './app.js',
-  devtool: 'source-map',
+  entry: './src/index.jsx',
+
   output: {
-    path: path.resolve('./public'),
-    filename: 'app.js'
+    path: path.resolve('./dist'),
+    filename: 'app.js',
+    library: 'ReactFormBuilder',
+    libraryTarget: 'umd',
+    umdNamedDefine: true,
   },
+
+  externals: {
+    react: {
+      commonjs: 'react',
+      commonjs2: 'react',
+      amd: 'react',
+      root: 'React',
+    },
+    'react-dom': {
+      commonjs: 'react-dom',
+      commonjs2: 'react-dom',
+      amd: 'react-dom',
+      root: 'ReactDOM',
+    },
+    bootstrap: 'bootstrap',
+  },
+
   resolve: {
-    extensions: ['.js', '.jsx', '.scss', '.css', '.json'],
+    extensions: ['.mjs', '.js', '.jsx', '.scss', '.css', '.json'],
     alias: {
-      "jquery": path.join(__dirname, "./jquery-stub.js")
-    }
+      jquery: path.join(__dirname, './jquery-stub.js'),
+    },
   },
-  plugins: [
-    //
-  ],
-  
+
   module: {
     rules: [
       {
+        test: /\.(js|jsx|mjs)$/,
         exclude: /node_modules/,
-        test: /\.js$|.jsx?$/,
-        use: [
-          { loader: 'babel-loader' }
-        ],
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+            plugins: [
+              '@babel/plugin-proposal-class-properties',
+              '@babel/plugin-proposal-json-strings',
+              '@babel/plugin-syntax-dynamic-import',
+              '@babel/plugin-syntax-import-meta',
+              '@babel/plugin-transform-runtime',
+              '@babel/plugin-proposal-optional-chaining',
+              '@babel/plugin-proposal-nullish-coalescing-operator',
+            ],
+          },
+        },
       },
       {
         test: /\.scss$/,
         use: [
+          'style-loader',
+          'css-loader',
           {
-            loader: 'style-loader'
-          },
-          {
-            loader: 'css-loader'
-          },
-          {
-            loader: 'sass-loader', options: {
+            loader: 'sass-loader',
+            options: {
               sassOptions: {
                 includePaths: ['./node_modules'],
               },
-            }
-          }
-        ]
+            },
+          },
+        ],
       },
       {
         test: /\.(png|jpe?g|gif)$/i,
@@ -51,27 +77,16 @@ module.exports = {
           {
             loader: 'url-loader',
             options: {
-              limit: 8192, // in bytes
+              limit: 8192,
+              fallback: 'file-loader',
             },
           },
         ],
       },
-    ]
+    ],
   },
-  devServer: {
-    port: 8080,
-    host: "localhost",
-    historyApiFallback: true,
-    headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-        "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
-    },
-    watchOptions: {aggregateTimeout: 300, poll: 1000},
-    contentBase: './public',
-    open: true,
-    proxy: {
-      "/api/*": "http://127.0.0.1:5005"
-    }
-  }
+
+  performance: {
+    hints: false,
+  },
 };
