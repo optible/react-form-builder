@@ -1,3 +1,3 @@
 const formData = require('./dummyFormData.json');
 
-module.exports = { data: formData, answers: {} };
+export default { data: formData, answers: {} };

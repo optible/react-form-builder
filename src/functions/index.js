@@ -1,9 +1,13 @@
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/extensions */
 import React from 'react';
 import * as PkgTextAreaAutosize from 'react-textarea-autosize';
 import * as DraftJs from 'draft-js';
 import * as draftToHtml from 'draftjs-to-html';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { Editor } from 'react-draft-wysiwyg';
-import ID from '../UUID';
+// eslint-disable-next-line import/extensions
+import ID from '../UUID.js';
 
 const generateUUID = () => ID.uuid();
 

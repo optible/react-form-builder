@@ -4,7 +4,6 @@ import { saveAs } from 'file-saver';
 import React from 'react';
 import Select from 'react-select';
 import SignaturePad from 'react-signature-canvas';
-import ReactBootstrapSlider from 'react-bootstrap-slider';
 
 import StarRating from './star-rating';
 import DatePicker from './date-picker';
@@ -912,7 +911,7 @@ class Range extends React.Component {
               <span className="float-left">{this.props.data.min_label}</span>
               <span className="float-right">{this.props.data.max_label}</span>
             </div>
-            <ReactBootstrapSlider {...props} />
+            {/* <ReactBootstrapSlider {...props} /> */}
           </div>
           <div className="visible_marks">
             {visible_marks}

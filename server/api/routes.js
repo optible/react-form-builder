@@ -27,4 +27,4 @@ app.route('/optionsdata/')
     res.send(optionsData);
   });
 
-module.exports = app;
+export default app;

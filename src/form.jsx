@@ -1,3 +1,12 @@
+/* eslint-disable import/extensions */
+/* eslint-disable no-multi-spaces */
+/* eslint-disable import/no-unresolved */
+/* eslint-disable camelcase */
+/* eslint-disable no-unused-vars */
+/* eslint-disable object-curly-spacing */
+/* eslint-disable comma-dangle */
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-console */
 /**
   * <Form />
   */
@@ -6,12 +15,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { EventEmitter } from 'fbemitter';
 import { injectIntl } from 'react-intl';
-import FormValidator from './form-validator';
-import FormElements from './form-elements';
-import { TwoColumnRow, ThreeColumnRow, MultiColumnRow } from './multi-column';
-import { FieldSet } from './fieldset';
-import CustomElement from './form-elements/custom-element';
-import Registry from './stores/registry';
+import FormValidator from './form-validator.jsx';
+import FormElements from './form-elements/index.jsx';
+// eslint-disable-next-line import/no-unresolved
+import { TwoColumnRow, ThreeColumnRow, MultiColumnRow } from './multi-column/index.js';
+import { FieldSet } from './fieldset/index.js';
+import CustomElement from './form-elements/custom-element.jsx';
+// eslint-disable-next-line import/extensions
+import Registry from './stores/registry.js';
 
 const {
   Image, Checkboxes, Signature, Download, Camera, FileUpload,
@@ -231,10 +242,12 @@ class ReactForm extends React.Component {
     }
   }
 
+  // eslint-disable-next-line no-unused-vars
   handleChange(event) {
     // Call submit function on change
     if (this.props.onChange) {
-      const {onChange} = this.props;
+      // eslint-disable-next-line object-curly-spacing, no-multi-spaces
+      const {onChange } = this.props;
       const data = this._collectFormData(this.props.data);
       onChange(data);
     }
@@ -264,7 +277,7 @@ class ReactForm extends React.Component {
         if (emailValue) {
             const validateEmail = (email) => email.match(
               // eslint-disable-next-line no-useless-escape
-              /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+              /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
             );
           const checkEmail = validateEmail(emailValue);
           if (!checkEmail) {
@@ -278,8 +291,8 @@ class ReactForm extends React.Component {
         const phoneValue = this._getItemValue(item, ref).value;
         if (phoneValue) {
           const validatePhone = (phone) => phone.match(
-            // eslint-disable-next-line no-useless-escape
-            /^[+]?(1\-|1\s|1|\d{3}\-|\d{3}\s|)?((\(\d{3}\))|\d{3})(\-|\s)?(\d{3})(\-|\s)?(\d{4})$/g
+            // eslint-disable-next-line no-useless-escape, comma-dangle
+            /^[+]?(1\-|1\s|1|\d{3}\-|\d{3}\s|)?((\(\d{3}\))|\d{3})(\-|\s)?(\d{3})(\-|\s)?(\d{4})$/g,
           );
           const checkPhone = validatePhone(phoneValue);
           if (!checkPhone) {
@@ -330,8 +343,10 @@ class ReactForm extends React.Component {
     const { intl } = this.props;
 
     if (!item.component || typeof item.component !== 'function') {
+      // eslint-disable-next-line no-param-reassign
       item.component = Registry.get(item.key);
       if (!item.component) {
+        // eslint-disable-next-line no-console
         console.error(`${item.element} ${intl.formatMessage({ id: 'message.was-not-registered' })}`);
       }
     }
@@ -372,6 +387,7 @@ class ReactForm extends React.Component {
     let data_items = this.props.data;
 
     if (this.props.display_short) {
+      // eslint-disable-next-line camelcase
       data_items = this.props.data.filter((i) => i.alternateForm === true);
     }
 

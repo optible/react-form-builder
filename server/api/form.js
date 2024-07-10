@@ -60,4 +60,4 @@ var handleUpload = (req, res) => {
   });
 };
 
-module.exports = handleUpload;
+export default handleUpload;

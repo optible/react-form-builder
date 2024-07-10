@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { injectIntl } from 'react-intl';
-import DragDropImage from './assets/drag-and-drop.png'
+import DragDropImage from './assets/drag-and-drop.png';
 
 const PLACE_HOLDER = 'form-place-holder';
 const PLACE_HOLDER_HIDDEN = 'form-place-holder-hidden';
@@ -16,20 +16,20 @@ class PlaceHolder extends React.Component {
       <div className="container-fluid d-flex justify-content-center align-items-center mt-5">
         <div>
           {this.props.show ? (
-            this.props.text === "Dropzone" ? (
+            this.props.text === 'Dropzone' ? (
               <div className='mt-5'>
                 <img
-                  style={{ height: "200px", width: "219px" }}
+                  style={{ height: '200px', width: '219px' }}
                   className="container-fluid d-flex justify-content-center mb-5"
                   src={DragDropImage}
                   alt="Drag and Drop"
                 />
-                <div>Build Your Acquittal Form Easily!</div>{" "}
+                <div>Build Your Acquittal Form Easily!</div>{' '}
                 <ul>
                   <li>
                     Drag and drop to Add: Simply drag any field from the sidebar
                     and drop it into your form.
-                  </li>{" "}
+                  </li>{' '}
                   <li>
                     Click to Add. Click the '+' icon to quickly add new fields.
                   </li>
@@ -40,10 +40,10 @@ class PlaceHolder extends React.Component {
                 </ul>
               </div>
             ) : (
-              ""
+              ''
             )
           ) : (
-            ""
+            ''
           )}
         </div>
       </div>

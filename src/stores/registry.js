@@ -46,4 +46,4 @@ function regg() {
   return self;
 }
 
-module.exports = regg();
+export default regg();

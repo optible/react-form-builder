@@ -1,5 +1,7 @@
+/* eslint-disable import/extensions */
 import Store from 'beedle';
-import { get, post } from './requests';
+// eslint-disable-next-line import/extensions
+import { get, post } from './requests.js';
 
 let _saveUrl;
 let _onPost;
