@@ -90,9 +90,9 @@ class Toolbar extends React.Component {
         ];
       case 'HorizontalRadio':
         return [
-          { value: 'Option 1', imageUrl: 'https://picsum.photos/200/300', key: `radio_option_${nanoid()}` },
-          { value: 'Option 2', imageUrl: 'https://picsum.photos/200/300', key: `radio_option_${nanoid()}` },
-          { value: 'Option 3', imageUrl: 'https://picsum.photos/200/300', key: `radio_option_${nanoid()}` },
+          { value: 'Option 1', text: 'Text to display 1',  imageUrl: 'https://picsum.photos/200/300', key: `radio_option_${nanoid()}` },
+          { value: 'Option 2', text: 'Text to display 2', imageUrl: 'https://picsum.photos/200/300', key: `radio_option_${nanoid()}` },
+          { value: 'Option 3', text: 'Text to display 3', imageUrl: 'https://picsum.photos/200/300', key: `radio_option_${nanoid()}` },
         ]
       default:
         return [];
