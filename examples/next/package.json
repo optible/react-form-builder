@@ -14,7 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "react-form-builder2": "^0.13.0",
-    "react-draft-wysiwyg": "1.13.2",
+    "react-draft-wysiwyg": "1.14.6",
     "body-parser": "^1.18.3",
     "classnames": "^2.2.5",
     "jquery": "^3.3.1",
@@ -22,7 +22,7 @@
     "express": "^4.16.4",
     "multer": "^1.4.1",
     "isomorphic-fetch": "^2.2.1",
-    "next": "^12.3.1",
+    "next": "^14.1.1",
     "next-routes": "^1.4.2",
     "sass": "^1.53.0",
     "react": "^18.2.0",
